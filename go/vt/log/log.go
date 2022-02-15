@@ -24,7 +24,7 @@ package log
 import (
 	"flag"
 
-	"github.com/golang/glog"
+	"github.com/aristanetworks/glog"
 )
 
 // Level is used with V() to test log verbosity.
@@ -45,11 +45,11 @@ var (
 	InfoDepth = glog.InfoDepth
 
 	// Warning formats arguments like fmt.Print.
-	Warning = glog.Warning
+	Warning = glog.V(1).Info
 	// Warningf formats arguments like fmt.Printf.
-	Warningf = glog.Warningf
+	Warningf = glog.V(1).Infof
 	// WarningDepth formats arguments like fmt.Print and uses depth to choose which call frame to log.
-	WarningDepth = glog.WarningDepth
+	WarningDepth = glog.InfoDepth
 
 	// Error formats arguments like fmt.Print.
 	Error = glog.Error
@@ -59,11 +59,11 @@ var (
 	ErrorDepth = glog.ErrorDepth
 
 	// Exit formats arguments like fmt.Print.
-	Exit = glog.Exit
+	Exit = glog.Fatal
 	// Exitf formats arguments like fmt.Printf.
-	Exitf = glog.Exitf
+	Exitf = glog.Fatalf
 	// ExitDepth formats arguments like fmt.Print and uses depth to choose which call frame to log.
-	ExitDepth = glog.ExitDepth
+	ExitDepth = glog.FatalDepth
 
 	// Fatal formats arguments like fmt.Print.
 	Fatal = glog.Fatal
